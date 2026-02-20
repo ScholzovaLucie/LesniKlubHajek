@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { assetPath } from "../../lib/assetPath";
 
 const T = {
   dark: "#2f4a32",
@@ -48,7 +49,7 @@ export default function Footer() {
                 boxShadow: "0 5px 12px rgba(0,0,0,0.22)",
               }}
             >
-              <Image src="/assets/hajek_logo.png" alt="Logo Lesní klub Hájek" width={34} height={34} style={{ width: "100%", height: "100%", objectFit: "contain", padding: 2 }} />
+              <Image src={assetPath("/assets/hajek_logo.png")} alt="Logo Lesní klub Hájek" width={34} height={34} style={{ width: "100%", height: "100%", objectFit: "contain", padding: 2 }} />
             </div>
             <div style={{ color: T.white, fontWeight: 900, fontSize: "1.05rem" }}>Lesní klub Hájek</div>
           </div>
@@ -88,7 +89,7 @@ export default function Footer() {
           <a href="https://www.facebook.com/profile.php?id=100094171486836" target="_blank" rel="noreferrer" style={{ display: "block", color: "rgba(255,255,255,0.52)", fontSize: "0.82rem", marginBottom: "0.45rem" }}>Facebook</a>
           <a href="https://www.instagram.com/lesni_klub_hajek/" target="_blank" rel="noreferrer" style={{ display: "block", color: "rgba(255,255,255,0.52)", fontSize: "0.82rem" }}>Instagram</a>
           <a href="https://sweby.cz" target="_blank" rel="noreferrer" style={{ display: "inline-block", marginTop: "1rem", borderRadius: 10, overflow: "hidden", border: "1px solid rgba(255,255,255,0.16)", background: "rgba(255,255,255,0.06)" }}>
-            <Image src="/assets/sweby_logo.png" alt="Logo Ing. Lucie Nováková" width={30} height={6} style={{ width: "30px", height: "auto", display: "block" }} />
+            <Image src={assetPath("/assets/sweby_logo.png")} alt="Logo Ing. Lucie Nováková" width={30} height={6} style={{ width: "30px", height: "auto", display: "block" }} />
           </a>
         </div>
       </div>

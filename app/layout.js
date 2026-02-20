@@ -1,5 +1,6 @@
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
+import { assetPath } from "../lib/assetPath";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.lesniklubhajek.cz";
 
@@ -48,8 +49,8 @@ export const metadata = {
     images: ["/opengraph-image.png"],
   },
   icons: {
-    icon: "/assets/hajek_logo.png",
-    apple: "/assets/hajek_logo.png",
+    icon: assetPath("/assets/hajek_logo.png"),
+    apple: assetPath("/assets/hajek_logo.png"),
   },
   robots: {
     index: true,

@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { assetPath } from "../../lib/assetPath";
 
 const T = {
   dark: "#2f4a32",
@@ -78,7 +79,7 @@ export default function Navbar() {
               }}
             >
               <Image
-                src="/assets/hajek_logo.png"
+                src={assetPath("/assets/hajek_logo.png")}
                 alt="Logo Lesní klub Hájek"
                 width={42}
                 height={42}

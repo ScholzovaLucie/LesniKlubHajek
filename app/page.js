@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { assetPath } from "../lib/assetPath";
 
 const T = {
   dark: "#2f4a32",
@@ -278,7 +279,7 @@ function Navbar({ page, setPage }) {
               }}
             >
               <Image
-                src="/assets/hajek_logo.png"
+                src={assetPath("/assets/hajek_logo.png")}
                 alt="Logo Lesní klub Hájek"
                 width={42}
                 height={42}
@@ -591,7 +592,7 @@ function PageUvod({ setPage }) {
           }}
         >
           <Image
-            src="/assets/deti_u_stromu.png"
+            src={assetPath("/assets/deti_u_stromu.png")}
             alt=""
             aria-hidden="true"
             width={1400}
@@ -711,10 +712,10 @@ function PageUvod({ setPage }) {
             }}
           >
             {[
-              { img: "/assets/jezecek.png", t: "Každý den venku" },
-              { img: "/assets/lyska_kid.png", t: "Přírodní učebna" },
-              { img: "/assets/myval_kid.png", t: "Tvořivost a hra" },
-              { img: "/assets/kralicek2.png", t: "Individuální přístup" },
+              { img: assetPath("/assets/jezecek.png"), t: "Každý den venku" },
+              { img: assetPath("/assets/lyska_kid.png"), t: "Přírodní učebna" },
+              { img: assetPath("/assets/myval_kid.png"), t: "Tvořivost a hra" },
+              { img: assetPath("/assets/kralicek2.png"), t: "Individuální přístup" },
             ].map((b) => (
               <div
                 key={b.t}
@@ -916,7 +917,7 @@ function PageUvod({ setPage }) {
                   }}
                 >
                   <Image
-                    src="/assets/zazemi.jpg"
+                    src={assetPath("/assets/zazemi.jpg")}
                     alt="Nové zázemí pro děti"
                     width={1000}
                     height={650}
@@ -1014,13 +1015,13 @@ function PageUvod({ setPage }) {
           }}
         >
           <div
-            key="/assets/animals.png"
+            key={assetPath("/assets/animals.png")}
             style={{
               width: "min(520px, 92vw)",
             }}
           >
             <Image
-              src="/assets/animals.png"
+              src={assetPath("/assets/animals.png")}
               alt="Zvířátko lesního klubu"
               width={900}
               height={220}
@@ -1102,32 +1103,32 @@ function PageUvod({ setPage }) {
 
 const FEATURES = [
   {
-    img: "/assets/lyska_2.png",
+    img: assetPath("/assets/lyska_2.png"),
     t: "Za každého počasí",
     d: "Vybaveni se ridi rcenim: Neni spatne počasí, pouze spatne oblečení. Nosime nekolik vrstev vhodnych pro rocni obdobi.",
   },
   {
-    img: "/assets/sova.png",
+    img: assetPath("/assets/sova.png"),
     t: "Zimni otuzovani",
     d: "Na cerstvem vzduchu pri promenlive teplote se děti ucinne otuzuji a posiluji imunitni system.",
   },
   {
-    img: "/assets/jelinek_2.png",
+    img: assetPath("/assets/jelinek_2.png"),
     t: "Lesní učebna",
     d: "Děti netráví celý rok jen v lese. Součástí programu jsou návštěvy kulturních akcí a veřejných institucí.",
   },
   {
-    img: "/assets/myval_2.png",
+    img: assetPath("/assets/myval_2.png"),
     t: "Tvořivost a fantazie",
     d: "V maringotce najdete knihy, hry a materiály pro tvoření. Hlavní materiál pro hru nabízí prostředí lesa.",
   },
   {
-    img: "/assets/kralicek2.png",
+    img: assetPath("/assets/kralicek2.png"),
     t: "Zázemí se zahradou",
     d: "Součástí je zahrada s pískovištěm v těsné blízkosti domácích i lesních zvířátek.",
   },
   {
-    img: "/assets/medved_ptak.png",
+    img: assetPath("/assets/medved_ptak.png"),
     t: "Individuální vzdělávání",
     d: "Děti tu mohou plnit povinný předškolní rok v režimu individuálního vzdělávání.",
   },
@@ -1550,19 +1551,19 @@ const LIDE = [
   {
     jmeno: "Lenka Scholzova",
     role: "Hlavní vedoucí",
-    img: "/assets/lyska.png",
+    img: assetPath("/assets/lyska.png"),
     bio: "V lesním klubu mám na starost ekonomiku, účetnictví, naše zázemí, komunikaci s rodiči i okolím a vedení průvodců. Miluju zvířata a nedokážu si svůj život bez nich představit. Mám tři biologické děti a jedno v pěstounské péči. Mým posláním je pomáhat těm, kteří to potřebují.",
   },
   {
     jmeno: "Tereza Weinlichova",
     role: "Průvodkyně",
-    img: "/assets/myval_3.png",
+    img: assetPath("/assets/myval_3.png"),
     bio: "Ahoj, jsem Terka, holka, která má ráda zábavu, dobrodružství, práci s dětmi a poznávání nových věcí. Vystudovala jsem vysokou školu pedagogiky volného času a nyní studuji bezpečnostní složky. Vedu tábory, akce, lezecký a snowboardový kroužek.",
   },
   {
     jmeno: "Tereza Scholzova",
     role: "Průvodkyně",
-    img: "/assets/jezecek.png",
+    img: assetPath("/assets/jezecek.png"),
     bio: "Průvodkyně našeho lesního klubu. Společně s dětmi prožívá každý den v přírodě a pomáhá jim poznávat svět kolem nich.",
   },
 ];
@@ -2356,7 +2357,7 @@ function Footer({ setPage }) {
               }}
             >
               <Image
-                src="/assets/hajek_logo.png"
+                src={assetPath("/assets/hajek_logo.png")}
                 alt="Logo Lesní klub Hájek"
                 width={34}
                 height={34}
@@ -2500,7 +2501,7 @@ function Footer({ setPage }) {
             }}
           >
             <Image
-              src="/assets/sweby_logo.png"
+              src={assetPath("/assets/sweby_logo.png")}
               alt="Logo Ing. Lucie Nováková"
               width={30}
               height={6}

@@ -1,9 +1,48 @@
 "use client";
 
+import { useState } from "react";
 import { T } from "../constants";
 import { Card, HeroBar, SLabel, STitle } from "../ui";
 
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
 export function PageKontakt() {
+  const [result, setResult] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setSubmitting(true);
+    setResult("Odesílám...");
+
+    const formData = new FormData(event.target);
+    if (!WEB3FORMS_ACCESS_KEY) {
+      setResult("Chybí nastavení formuláře. Napište nám prosím e-mailem.");
+      setSubmitting(false);
+      return;
+    }
+    formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Zpráva byla úspěšně odeslána.");
+        event.target.reset();
+      } else {
+        setResult("Odeslání se nepodařilo. Zkuste to prosím znovu.");
+      }
+    } catch {
+      setResult("Odeslání se nepodařilo. Zkuste to prosím znovu.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <div>
       <HeroBar
@@ -158,7 +197,8 @@ export function PageKontakt() {
             >
               Odeslat zprávu
             </h3>
-            <div
+            <form
+              onSubmit={onSubmit}
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -196,7 +236,15 @@ export function PageKontakt() {
                   </label>
                   <input
                     type={f.type}
+                    name={
+                      f.label === "Vaše jméno"
+                        ? "name"
+                        : f.label === "E-mail"
+                        ? "email"
+                        : "subject"
+                    }
                     placeholder={f.placeholder}
+                    required
                     style={{
                       width: "100%",
                       padding: "0.75rem 0.95rem",
@@ -223,8 +271,10 @@ export function PageKontakt() {
                   Zpráva
                 </label>
                 <textarea
+                  name="message"
                   placeholder="Napište nám..."
                   rows={4}
+                  required
                   style={{
                     width: "100%",
                     padding: "0.75rem 0.95rem",
@@ -239,6 +289,8 @@ export function PageKontakt() {
                 />
               </div>
               <button
+                type="submit"
+                disabled={submitting}
                 style={{
                   background: `linear-gradient(135deg, ${T.dark}, ${T.bright})`,
                   color: T.white,
@@ -250,11 +302,23 @@ export function PageKontakt() {
                   fontWeight: 800,
                   fontSize: "0.95rem",
                   boxShadow: "0 6px 20px rgba(60,100,20,0.25)",
+                  opacity: submitting ? 0.75 : 1,
                 }}
               >
-                Odeslat zprávu 🌿
+                {submitting ? "Odesílám..." : "Odeslat zprávu 🌿"}
               </button>
-            </div>
+              {result && (
+                <p
+                  style={{
+                    marginTop: "0.25rem",
+                    fontSize: "0.86rem",
+                    color: result.includes("úspěšně") ? T.bright : T.textSoft,
+                  }}
+                >
+                  {result}
+                </p>
+              )}
+            </form>
           </Card>
         </div>
       </div>

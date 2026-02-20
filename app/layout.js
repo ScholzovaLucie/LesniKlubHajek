@@ -1,3 +1,8 @@
+import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.lesniklubhajek.cz";
+
 export const metadata = {
   title: {
     default: "Lesní klub Hájek | Lesní školka pro malé objevitele",
@@ -17,12 +22,12 @@ export const metadata = {
   authors: [{ name: "Lesní klub Hájek" }],
   creator: "Lesní klub Hájek",
   publisher: "Lesní klub Hájek",
-  metadataBase: new URL("https://www.lesniklubhajek.cz"),
+  metadataBase: new URL(siteUrl),
   openGraph: {
     title: "Lesní klub Hájek",
     description:
       "Lesní školka pro malé objevitele. Bezpečné a hravé prostředí v přírodě pro děti 2–6 let.",
-    url: "https://www.lesniklubhajek.cz",
+    url: siteUrl,
     siteName: "Lesní klub Hájek",
     locale: "cs_CZ",
     type: "website",
@@ -55,7 +60,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="cs">
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

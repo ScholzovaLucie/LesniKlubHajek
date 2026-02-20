@@ -21,3 +21,31 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.lk-mobile-toggle {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .lk-footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .lk-nav-links {
+    display: none !important;
+  }
+
+  .lk-mobile-toggle {
+    display: inline-flex !important;
+  }
+
+  .lk-mobile-panel {
+    width: min(90vw, 340px) !important;
+  }
+
+  .lk-footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

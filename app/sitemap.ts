@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
-const baseUrl = "https://www.lesniklubhajek.cz";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.lesniklubhajek.cz";
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

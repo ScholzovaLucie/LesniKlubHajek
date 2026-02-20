@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const T = {
   dark: "#2f4a32",
@@ -17,7 +18,7 @@ const T = {
   accent: "#b87947",
 };
 
-const css = `
+export const css = `
   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Nunito', sans-serif; background: #f3f1e8; color: #2c3a2d; }
@@ -1159,7 +1160,7 @@ const RYTMUS = [
   { c: "15:30 - 16:00", p: "Vyzvedávání dětí, zhodnocení dne" },
 ];
 
-function PageONas() {
+export function PageONas() {
   return (
     <div>
       <HeroBar
@@ -1566,7 +1567,7 @@ const LIDE = [
   },
 ];
 
-function PageLide() {
+export function PageLide() {
   return (
     <div>
       <HeroBar
@@ -1729,9 +1730,10 @@ const CENY = [
   { dni: 2, cena: 2400 },
   { dni: 3, cena: 3500 },
   { dni: 4, cena: 4400 },
+  { dni: 5, cena: 5100 },
 ];
 
-function PageCenik() {
+export function PageCenik() {
   return (
     <div>
       <HeroBar
@@ -1969,7 +1971,7 @@ const IMGS = [
   "modelina",
 ];
 
-function PageGalerie() {
+export function PageGalerie() {
   const [sel, setSel] = useState(null);
   return (
     <div>
@@ -2053,7 +2055,7 @@ function PageGalerie() {
   );
 }
 
-function PageKontakt() {
+export function PageKontakt() {
   return (
     <div>
       <HeroBar
@@ -2313,6 +2315,8 @@ function PageKontakt() {
 }
 
 function Footer({ setPage }) {
+  const personalWebUrl = "https://sweby.cz";
+
   return (
     <footer
       style={{
@@ -2482,6 +2486,27 @@ function Footer({ setPage }) {
           >
             Instagram
           </a>
+          <a
+            href={personalWebUrl}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              display: "inline-block",
+              marginTop: "1rem",
+              borderRadius: 10,
+              overflow: "hidden",
+              border: "1px solid rgba(255,255,255,0.16)",
+              background: "rgba(255,255,255,0.06)",
+            }}
+          >
+            <Image
+              src="/assets/sweby_logo.png"
+              alt="Logo Ing. Lucie Nováková"
+              width={30}
+              height={6}
+              style={{ width: "30px", height: "auto", display: "block" }}
+            />
+          </a>
         </div>
       </div>
       <div
@@ -2500,8 +2525,8 @@ function Footer({ setPage }) {
   );
 }
 
-export default function App() {
-  const [page, setPage] = useState("uvod");
+export default function HomePage() {
+  const router = useRouter();
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Preschool",
@@ -2520,17 +2545,17 @@ export default function App() {
     },
   };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [page]);
+  const routeMap = {
+    uvod: "/",
+    onas: "/o-nas",
+    lide: "/lide",
+    cenik: "/cenik",
+    galerie: "/fotogalerie",
+    kontakt: "/kontakt",
+  };
 
-  const render = {
-    uvod: <PageUvod setPage={setPage} />,
-    onas: <PageONas />,
-    lide: <PageLide />,
-    cenik: <PageCenik />,
-    galerie: <PageGalerie />,
-    kontakt: <PageKontakt />,
+  const setPage = (id) => {
+    router.push(routeMap[id] || "/");
   };
 
   return (
@@ -2540,9 +2565,9 @@ export default function App() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
-      <Navbar page={page} setPage={setPage} />
-      <main className="lk-main">{render[page] || render.uvod}</main>
-      <Footer setPage={setPage} />
+      <main className="lk-main">
+        <PageUvod setPage={setPage} />
+      </main>
     </div>
   );
 }

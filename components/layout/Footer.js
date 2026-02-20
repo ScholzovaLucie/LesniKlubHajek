@@ -183,7 +183,7 @@ export default function Footer() {
             Instagram
           </a>
           <a
-            href="https://sweby.cz"
+            href="https://s-weby.cz"
             target="_blank"
             rel="noreferrer"
             style={{

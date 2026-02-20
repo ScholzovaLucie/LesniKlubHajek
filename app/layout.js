@@ -34,9 +34,9 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/opengraph-image.png",
-        width: 1200,
-        height: 630,
+        url: assetPath("/assets/hajek_logo.png"),
+        width: 512,
+        height: 512,
         alt: "Lesní klub Hájek",
       },
     ],
@@ -46,7 +46,7 @@ export const metadata = {
     title: "Lesní klub Hájek",
     description:
       "Lesní školka pro malé objevitele. Bezpečné a hravé prostředí v přírodě pro děti 2–6 let.",
-    images: ["/opengraph-image.png"],
+    images: [assetPath("/assets/hajek_logo.png")],
   },
   icons: {
     icon: assetPath("/assets/hajek_logo.png"),

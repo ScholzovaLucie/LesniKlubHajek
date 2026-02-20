@@ -26,6 +26,33 @@ body {
   display: none;
 }
 
+.lk-nav-link {
+  cursor: pointer;
+}
+
+.lk-nav-link:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.55) !important;
+  transform: translateY(-1px);
+}
+
+.lk-nav-link--active {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.lk-mobile-nav-link {
+  transition: transform 0.16s ease, background-color 0.16s ease;
+}
+
+.lk-mobile-nav-link:hover {
+  transform: translateX(2px);
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+
+.lk-mobile-nav-link--active {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
 @media (max-width: 1024px) {
   .lk-footer-grid {
     grid-template-columns: 1fr 1fr !important;

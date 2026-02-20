@@ -10,7 +10,7 @@ const LIDE = [
     jmeno: "Lenka Scholzova",
     role: "Hlavní vedoucí",
     img: assetPath("/assets/lyska.png"),
-    bio: "V lesním klubu mám na starost ekonomiku, účetnictví, naše zázemí, komunikaci s rodiči i okolím a vedení průvodců. Miluju zvířata a nedokážu si svůj život bez nich představit. Mám tři biologické děti a jedno v pěstounské péči. Mým posláním je pomáhat těm, kteří to potřebují.",
+    bio: "V lesním klubu mám na starost ekonomiku, účetnictví, naše zázemí, komunikaci s rodiči i okolím a vedení průvodců. Mám vystudovaný kurz Chůva pro děti v dětské skupině. Miluju zvířata a nedokážu si svůj život bez nich představit. Mám tři biologické děti a jedno v pěstounské péči. Mým posláním je pomáhat těm, kteří to potřebují.",
   },
   {
     jmeno: "Tereza Weinlichova",
@@ -22,7 +22,7 @@ const LIDE = [
     jmeno: "Tereza Scholzova",
     role: "Průvodkyně",
     img: assetPath("/assets/jezecek.png"),
-    bio: "Průvodkyně našeho lesního klubu. Společně s dětmi prožívá každý den v přírodě a pomáhá jim poznávat svět kolem nich.",
+    bio: "Jsem průvodkyně našeho lesního klubu a nejvíc mě těší být s dětmi venku. Od mala se ráda věnuji sportu, věnuju se gymnastice, atletice a plavání. Věnuji se Sokolské všestranocsti a zároveň zde trénuju děti. V létě vedu příměstské tábory a mám radost, když děti objevují, co všechno dokážou.",
   },
 ];
 

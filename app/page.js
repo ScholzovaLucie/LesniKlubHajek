@@ -73,8 +73,13 @@ export const css = `
     .lk-hero-text { font-size: 0.9rem !important; line-height: 1.7 !important; margin-bottom: 1.6rem !important; }
     .lk-hero-chips { gap: 0.55rem !important; }
     .lk-hero-chip { font-size: 0.74rem !important; padding: 0.52rem 0.72rem !important; }
-    .lk-hero-bg { opacity: 0.17 !important; align-items: flex-end !important; }
-    .lk-hero-bg-img { width: min(980px, 170vw) !important; }
+    .lk-hero-bg { opacity: 0.17 !important; align-items: center !important; }
+    .lk-hero-bg-img {
+      width: 124vw !important;
+      max-height: none !important;
+      height: auto !important;
+      object-fit: contain !important;
+    }
   }
 `;
 
@@ -428,7 +433,14 @@ function Navbar({ page, setPage }) {
               gap: "0.65rem",
             }}
           >
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.4rem" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "0.4rem",
+              }}
+            >
               <strong style={{ fontSize: "1rem" }}>Navigace</strong>
               <button
                 onClick={() => setMenuOpen(false)}
@@ -450,7 +462,10 @@ function Navbar({ page, setPage }) {
                 style={{
                   width: "100%",
                   textAlign: "left",
-                  border: page === p.id ? `2px solid ${T.pale}` : "1px solid rgba(255,255,255,0.25)",
+                  border:
+                    page === p.id
+                      ? `2px solid ${T.pale}`
+                      : "1px solid rgba(255,255,255,0.25)",
                   background: page === p.id ? T.pale : "rgba(255,255,255,0.08)",
                   color: page === p.id ? T.dark : T.white,
                   borderRadius: 12,
@@ -463,7 +478,9 @@ function Navbar({ page, setPage }) {
                 {p.label}
               </button>
             ))}
-            <div style={{ display: "flex", gap: "0.6rem", marginTop: "0.6rem" }}>
+            <div
+              style={{ display: "flex", gap: "0.6rem", marginTop: "0.6rem" }}
+            >
               <a
                 href="https://www.facebook.com/profile.php?id=100094171486836"
                 target="_blank"
@@ -599,8 +616,10 @@ function PageUvod({ setPage }) {
             height={900}
             className="lk-hero-bg-img"
             style={{
-              width: "min(1240px, 140vw)",
-              height: "auto",
+              height: "min(90vh, 1060px)",
+              width: "auto",
+              maxWidth: "128vw",
+              objectFit: "contain",
               filter: "saturate(0.85) contrast(0.95)",
             }}
             priority
@@ -715,7 +734,10 @@ function PageUvod({ setPage }) {
               { img: assetPath("/assets/jezecek.png"), t: "Každý den venku" },
               { img: assetPath("/assets/lyska_kid.png"), t: "Přírodní učebna" },
               { img: assetPath("/assets/myval_kid.png"), t: "Tvořivost a hra" },
-              { img: assetPath("/assets/kralicek2.png"), t: "Individuální přístup" },
+              {
+                img: assetPath("/assets/kralicek2.png"),
+                t: "Individuální přístup",
+              },
             ].map((b) => (
               <div
                 key={b.t}
@@ -761,8 +783,7 @@ function PageUvod({ setPage }) {
             }}
           >
             Hledáme rodiny, které sdílí naše hodnoty - respekt k přírodě,
-            společenství a radost z prožívání. Momentálně budujeme zázemí a
-            rozrůstáme se.
+            společenství a radost z prožívání.
           </p>
           <div style={{ maxWidth: 520, margin: "0 auto 1.6rem" }}>
             <StatsStrip soft />

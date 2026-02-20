@@ -12,6 +12,21 @@ export const css = `
   .fade-up3 { animation: fadeUp 0.55s 0.2s ease both; }
   .hlift { transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
   .hlift:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(60,100,20,0.18) !important; }
+  .lk-gallery-item {
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  }
+  .lk-gallery-item img {
+    transition: opacity 0.18s ease;
+  }
+  .lk-gallery-item:hover {
+    border-color: rgba(111, 143, 95, 0.8);
+    box-shadow: 0 10px 22px rgba(60, 100, 20, 0.2) !important;
+  }
+  .lk-gallery-item:hover img {
+    opacity: 0.93;
+  }
   .lk-mobile-toggle { display: none; }
   input, textarea { font-family: 'Nunito', sans-serif; }
   input:focus, textarea:focus { outline: none; border-color: #6f8f5f !important; box-shadow: 0 0 0 3px rgba(111,143,95,0.18); }
@@ -58,6 +73,10 @@ export const css = `
       max-height: none !important;
       height: auto !important;
       object-fit: contain !important;
+    }
+    .lk-gallery {
+      columns: 2 140px !important;
+      gap: 0.7rem !important;
     }
   }
 `;

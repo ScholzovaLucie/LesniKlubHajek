@@ -2115,7 +2115,7 @@ export function PageKontakt() {
                   t: "Lesní klub Hájek, z.s.",
                   d: "Machov 58, 549 63",
                 },
-                { e: "📞", t: "+420 737 787 061", d: "Volat pondeli - pátek" },
+                { e: "📞", t: "+420 737 787 061", d: "Volat pondělí - pátek" },
                 {
                   e: "✉️",
                   t: "lesni.klub.hajek@seznam.cz",

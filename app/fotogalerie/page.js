@@ -1,4 +1,4 @@
-import { css, PageGalerie } from "../page";
+import { css, PageGalerie } from "../../components/site";
 
 export const metadata = {
   title: "Fotogalerie",

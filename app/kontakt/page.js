@@ -1,4 +1,4 @@
-import { css, PageKontakt } from "../page";
+import { css, PageKontakt } from "../../components/site";
 
 export const metadata = {
   title: "Kontakt",

@@ -1,4 +1,4 @@
-import { css, PageONas } from "../page";
+import { css, PageONas } from "../../components/site";
 
 export const metadata = {
   title: "O nás",

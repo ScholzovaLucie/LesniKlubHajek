@@ -1,4 +1,4 @@
-import { css, PageCenik } from "../page";
+import { css, PageCenik } from "../../components/site";
 
 export const metadata = {
   title: "Ceník",

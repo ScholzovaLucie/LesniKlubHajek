@@ -1,4 +1,4 @@
-import { css, PageLide } from "../page";
+import { css, PageLide } from "../../components/site";
 
 export const metadata = {
   title: "Lidé",

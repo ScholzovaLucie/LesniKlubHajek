@@ -28,7 +28,7 @@ const PARTNERS = [
     cta: "Přejít na web",
   },
   {
-    name: "Lucie Tarabová",
+    name: "Bc. Lucie Tarabová",
     description: "Tvorba sociálního obsahu a marketing.",
     href: "https://www.facebook.com/share/16zf9tUBA6/?mibextid=wwXIfr",
     cta: "Přejít na facebook",

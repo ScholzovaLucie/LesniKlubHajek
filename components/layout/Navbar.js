@@ -17,6 +17,7 @@ const NAV_ITEMS = [
   { href: "/", label: "Úvod" },
   { href: "/o-nas", label: "O nás" },
   { href: "/lide", label: "Lidé" },
+  { href: "/partneri-a-sponzori", label: "Partneři" },
   { href: "/fotogalerie", label: "Fotogalerie" },
   { href: "/kontakt", label: "Kontakt" },
 ];

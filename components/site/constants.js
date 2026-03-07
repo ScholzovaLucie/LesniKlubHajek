@@ -17,6 +17,7 @@ export const PAGES = [
   { id: "onas", label: "O nás" },
   { id: "lide", label: "Lidé" },
   { id: "cenik", label: "Ceník" },
+  { id: "partneri", label: "Partneři a sponzoři" },
   { id: "galerie", label: "Fotogalerie" },
   { id: "kontakt", label: "Kontakt" },
 ];

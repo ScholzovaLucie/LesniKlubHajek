@@ -3,6 +3,7 @@ export const routeMap = {
   onas: "/o-nas",
   lide: "/lide",
   cenik: "/cenik",
+  partneri: "/partneri-a-sponzori",
   galerie: "/fotogalerie",
   kontakt: "/kontakt",
 };

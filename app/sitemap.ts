@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/o-nas`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/lide`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/cenik`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/partneri-a-sponzori`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/fotogalerie`, lastModified, changeFrequency: "weekly", priority: 0.7 },
     { url: `${baseUrl}/kontakt`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/aktuality`, lastModified, changeFrequency: "weekly", priority: 0.8 },

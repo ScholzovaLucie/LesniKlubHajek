@@ -19,7 +19,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
 }
 
 .lk-mobile-toggle {
@@ -53,13 +53,90 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
 }
 
+.lk-partner-entry {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.lk-partner-entry--link {
+  cursor: pointer;
+}
+
+.lk-partner-entry:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 32px rgba(47, 74, 50, 0.12);
+  border-color: rgba(47, 74, 50, 0.24) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+}
+
+.lk-partner-entry:hover .lk-partner-name {
+  color: #26452f !important;
+}
+
+.lk-partner-entry:hover .lk-partner-cta,
+.lk-partner-entry--link:focus-visible .lk-partner-cta {
+  transform: translateX(2px);
+  color: #26452f !important;
+}
+
+.lk-partner-logo {
+  transition: transform 0.18s ease, opacity 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.lk-partner-logo-shell {
+  display: inline-flex;
+  border-radius: 16px;
+  text-decoration: none;
+  outline: none;
+}
+
+.lk-partner-logo-link {
+  display: inline-flex;
+  border-radius: 16px;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.lk-partner-logo-image {
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.14));
+  transition: transform 0.18s ease, filter 0.18s ease, opacity 0.18s ease;
+}
+
+.lk-partner-cta {
+  transition: transform 0.18s ease, color 0.18s ease, opacity 0.18s ease;
+}
+
+.lk-partner-entry:hover .lk-partner-logo {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(47, 74, 50, 0.12);
+}
+
+.lk-partner-entry:hover .lk-partner-logo-image,
+.lk-partner-logo-link:focus-visible .lk-partner-logo-image {
+  transform: scale(1.05);
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+}
+
+.lk-partner-logo-link:focus-visible {
+  box-shadow: 0 0 0 3px rgba(106, 176, 48, 0.35);
+}
+
 @media (max-width: 1024px) {
+  .lk-grid-3 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
   .lk-footer-grid {
     grid-template-columns: 1fr 1fr !important;
   }
 }
 
 @media (max-width: 700px) {
+  .lk-grid-2,
+  .lk-grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+
   .lk-nav-links {
     display: none !important;
   }

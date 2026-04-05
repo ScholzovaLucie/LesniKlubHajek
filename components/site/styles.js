@@ -1,5 +1,4 @@
 export const css = `
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Nunito', sans-serif; background: #f3f1e8; color: #2c3a2d; }
   a { text-decoration: none; color: inherit; }

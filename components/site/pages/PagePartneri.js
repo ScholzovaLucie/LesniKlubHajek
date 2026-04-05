@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { T } from "../constants";
 import { Card, HeroBar, SLabel, STitle } from "../ui";
@@ -20,12 +21,18 @@ const PARTNERS = [
     description: "Účetní a daňová podpora.",
     href: "https://danebezstarosti.cz",
     cta: "Přejít na web",
+    logo: "/assets/logo_dane_bez_starosti.png",
+    logoAlt: "Logo Daně bez starostí",
+    logoBg: "#f5f3ef",
   },
   {
     name: "Ing. Lucie Nováková (S-weby)",
     description: "Technická a webová podpora prezentace Lesního klubu Hájek.",
     href: "https://s-weby.cz",
     cta: "Přejít na web",
+    logo: "/assets/sweby_logo.png",
+    logoAlt: "Logo S-weby",
+    logoBg: "#5d705e",
   },
   {
     name: "Bc. Lucie Tarabová",
@@ -41,18 +48,36 @@ const SPONSORS = [
     description: "Nákup vybavení do domečku.",
     href: "https://www.mycomedica.cz",
     cta: "Přejít na web",
+    logo: "/assets/myco-logo-clean.svg",
+    logoAlt: "Logo MycoMedica",
+    logoBg: "#f2f0e9",
   },
   {
     name: "Damap-podlahové krytiny",
     description: "Dar v podobě koberce do domečku.",
     href: "https://www.damap-podlahy.cz/podlahove-krytiny/",
     cta: "Přejít na web",
+    logo: "/assets/logo_damap.png",
+    logoAlt: "Logo Damap-podlahové krytiny",
+    logoBg: "#5f725f",
   },
   {
     name: "Nadační fond Zeměkvět",
     description: "Peněžní dar na domeček.",
     href: "http://zemekvet.cz/",
     cta: "Přejít na web",
+    logo: "/assets/zemekvet_logo_topdown_green_brown.svg",
+    logoAlt: "Logo Nadační fond Zeměkvět",
+    logoBg: "#f1efe6",
+  },
+  {
+    name: "Alprim CZ s.r.o.",
+    description: "Příspěvek na vybavení šatny.",
+    href: "https://www.alprim.cz",
+    cta: "Přejít na web",
+    logo: "/assets/alprim_logo.png",
+    logoAlt: "Logo Alprim CZ s.r.o.",
+    logoBg: "#6a5850",
   },
   {
     name: "Dárci a podporovatelé",
@@ -66,6 +91,150 @@ const WAYS_TO_HELP = [
   "finanční dar na rozvoj aktivit pro děti",
   "partnerství při komunitních a vzdělávacích akcích",
 ];
+
+function PartnerLogo({ src, alt, background }) {
+  if (!src) {
+    return null;
+  }
+
+  return (
+    <div
+      className="lk-partner-logo"
+      style={{
+        width: 96,
+        minHeight: 64,
+        borderRadius: 16,
+        background: background || "transparent",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexShrink: 0,
+        padding: "0.45rem 0.5rem",
+      }}
+    >
+      <Image
+        src={src}
+        alt={alt || "Logo partnera"}
+        width={76}
+        height={76}
+        className="lk-partner-logo-image"
+        style={{
+          width: "auto",
+          height: "auto",
+          maxWidth: "78px",
+          maxHeight: "54px",
+          objectFit: "contain",
+        }}
+      />
+    </div>
+  );
+}
+
+function LogoLink({ item }) {
+  if (!item.logo) {
+    return null;
+  }
+
+  return (
+    <div className="lk-partner-logo-shell">
+      <PartnerLogo
+        src={item.logo}
+        alt={item.logoAlt || `Logo ${item.name}`}
+        background={item.logoBg}
+      />
+    </div>
+  );
+}
+
+function PartnerItemCard({ item, borderColor, background }) {
+  const Wrapper = item.href ? "a" : "div";
+
+  return (
+    <Wrapper
+      key={item.name}
+      {...(item.href
+        ? {
+            href: item.href,
+            target: "_blank",
+            rel: "noreferrer",
+            "aria-label": `${item.name} - ${item.cta || "přejít na web"}`,
+          }
+        : {})}
+      className={`lk-partner-entry${item.href ? " lk-partner-entry--link" : ""}`}
+      style={{
+        padding: "1rem 1.1rem",
+        borderRadius: 18,
+        border: `1px solid ${borderColor}`,
+        background,
+        display: "block",
+        textDecoration: "none",
+        color: "inherit",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          gap: "0.9rem",
+          alignItems: "flex-start",
+        }}
+      >
+        {item.logo ? (
+          <div
+            style={{
+              width: 110,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "0.55rem",
+              flexShrink: 0,
+            }}
+          >
+            <LogoLink item={item} />
+          </div>
+        ) : null}
+        <div>
+          <h3
+            className="lk-partner-name"
+            style={{
+              color: T.dark,
+              fontSize: "1rem",
+              fontWeight: 800,
+              marginBottom: "0.4rem",
+            }}
+          >
+            {item.name}
+          </h3>
+          <p
+            style={{
+              color: T.textSoft,
+              lineHeight: 1.75,
+              fontSize: "0.92rem",
+            }}
+          >
+            {item.description}
+          </p>
+          {item.href ? (
+            <div
+              className="lk-partner-cta"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.45rem",
+                marginTop: "0.75rem",
+                color: T.dark,
+                fontWeight: 800,
+                fontSize: "0.82rem",
+              }}
+            >
+              <span>{item.cta || "Přejít na web"}</span>
+              <span aria-hidden="true">↗</span>
+            </div>
+          ) : null}
+        </div>
+      </div>
+    </Wrapper>
+  );
+}
 
 export function PagePartneri() {
   return (
@@ -91,55 +260,12 @@ export function PagePartneri() {
               <STitle>Komunita, na které stojíme</STitle>
               <div style={{ display: "grid", gap: "1rem" }}>
                 {PARTNERS.map((partner) => (
-                  <div
+                  <PartnerItemCard
                     key={partner.name}
-                    style={{
-                      padding: "1rem 1.1rem",
-                      borderRadius: 18,
-                      border: "1px solid rgba(106,176,48,0.18)",
-                      background: T.bg,
-                    }}
-                  >
-                    <h3
-                      style={{
-                        color: T.dark,
-                        fontSize: "1rem",
-                        fontWeight: 800,
-                        marginBottom: "0.4rem",
-                      }}
-                    >
-                      {partner.name}
-                    </h3>
-                    <p
-                      style={{
-                        color: T.textSoft,
-                        lineHeight: 1.75,
-                        fontSize: "0.92rem",
-                      }}
-                    >
-                      {partner.description}
-                    </p>
-                    {partner.href ? (
-                      <a
-                        href={partner.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        style={{
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: 8,
-                          borderRadius: 999,
-                          padding: "0.65rem 1rem",
-                          background: T.dark,
-                          color: T.white,
-                          fontWeight: 800,
-                          fontSize: "0.85rem",
-                        }}
-                      >
-                        {partner.cta}
-                      </a>
-                    ) : null}
-                  </div>
+                    item={partner}
+                    borderColor="rgba(106,176,48,0.18)"
+                    background={T.bg}
+                  />
                 ))}
               </div>
             </Card>
@@ -149,56 +275,12 @@ export function PagePartneri() {
               <STitle>Podpora, která je vidět</STitle>
               <div style={{ display: "grid", gap: "1rem" }}>
                 {SPONSORS.map((sponsor) => (
-                  <div
+                  <PartnerItemCard
                     key={sponsor.name}
-                    style={{
-                      padding: "1rem 1.1rem",
-                      borderRadius: 18,
-                      border: "1px solid rgba(184,121,71,0.18)",
-                      background: "#fcfaf5",
-                    }}
-                  >
-                    <h3
-                      style={{
-                        color: T.dark,
-                        fontSize: "1rem",
-                        fontWeight: 800,
-                        marginBottom: "0.4rem",
-                      }}
-                    >
-                      {sponsor.name}
-                    </h3>
-                    <p
-                      style={{
-                        color: T.textSoft,
-                        lineHeight: 1.75,
-                        fontSize: "0.92rem",
-                        marginBottom: sponsor.href ? "0.85rem" : 0,
-                      }}
-                    >
-                      {sponsor.description}
-                    </p>
-                    {sponsor.href ? (
-                      <a
-                        href={sponsor.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        style={{
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: 8,
-                          borderRadius: 999,
-                          padding: "0.65rem 1rem",
-                          background: T.dark,
-                          color: T.white,
-                          fontWeight: 800,
-                          fontSize: "0.85rem",
-                        }}
-                      >
-                        {sponsor.cta}
-                      </a>
-                    ) : null}
-                  </div>
+                    item={sponsor}
+                    borderColor="rgba(184,121,71,0.18)"
+                    background="#fcfaf5"
+                  />
                 ))}
               </div>
             </Card>

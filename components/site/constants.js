@@ -14,6 +14,7 @@ export const T = {
 
 export const PAGES = [
   { id: "uvod", label: "Úvod" },
+  { id: "aktuality", label: "Aktuality" },
   { id: "onas", label: "O nás" },
   { id: "lide", label: "Lidé" },
   { id: "cenik", label: "Ceník" },

@@ -1,11 +1,12 @@
-"use client";
-
 import Image from "next/image";
+import Link from "next/link";
 import { assetPath } from "../../../lib/assetPath";
 import { T } from "../constants";
+import { actualities, newsHighlights } from "../newsData";
+import { ActualitiesSection } from "../ActualitiesSection";
 import { Card, GreenBtn, SLabel, STitle, StatsStrip } from "../ui";
 
-export function PageUvod({ setPage }) {
+export function PageUvod() {
   return (
     <div>
       <div
@@ -151,23 +152,14 @@ export function PageUvod({ setPage }) {
               marginBottom: "3rem",
             }}
           >
-            <GreenBtn
-              onClick={() => {
-                setPage("onas");
-                window.scrollTo(0, 0);
-              }}
-            >
-              Zjistit více &rarr;
-            </GreenBtn>
-            <GreenBtn
-              outline
-              onClick={() => {
-                setPage("kontakt");
-                window.scrollTo(0, 0);
-              }}
-            >
-              Kontaktovat nás
-            </GreenBtn>
+            <Link href="/o-nas" style={{ display: "inline-flex" }}>
+              <GreenBtn as="span">Zjistit více &rarr;</GreenBtn>
+            </Link>
+            <Link href="/kontakt" style={{ display: "inline-flex" }}>
+              <GreenBtn as="span" outline>
+                Kontaktovat nás
+              </GreenBtn>
+            </Link>
           </div>
           <div
             className="lk-hero-chips"
@@ -236,184 +228,71 @@ export function PageUvod({ setPage }) {
           <div style={{ maxWidth: 520, margin: "0 auto 1.6rem" }}>
             <StatsStrip soft />
           </div>
-          <GreenBtn
-            onClick={() => {
-              setPage("kontakt");
-              window.scrollTo(0, 0);
-            }}
-          >
-            Mám zájem o členství &rarr;
-          </GreenBtn>
+          <Link href="/kontakt" style={{ display: "inline-flex" }}>
+            <GreenBtn as="span">Mám zájem o členství &rarr;</GreenBtn>
+          </Link>
         </div>
       </div>
 
       <div style={{ background: T.bg, padding: "4.5rem 2rem" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
-            <SLabel>Aktuality</SLabel>
-            <STitle>Co je u nás nového?</STitle>
-          </div>
+          <ActualitiesSection items={actualities} compact upcomingOnly />
           <div
-            className="lk-grid-2"
             style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "2rem",
-              alignItems: "start",
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "2rem",
             }}
           >
-            <Card>
-              <div style={{ fontSize: "2.2rem", marginBottom: "0.8rem" }}>
-                🎉
-              </div>
-              <h3
-                style={{
-                  color: T.dark,
-                  fontSize: "1.25rem",
-                  fontWeight: 800,
-                  marginBottom: "0.8rem",
-                }}
+            <Link href="/aktuality" style={{ display: "inline-flex" }}>
+              <GreenBtn
+                as="span"
+                style={{ boxShadow: "0 8px 24px rgba(47,74,50,0.12)" }}
               >
-                Velký krok kupředu!
-              </h3>
-              <p
-                style={{
-                  color: T.textSoft,
-                  lineHeight: 1.85,
-                  fontSize: "0.93rem",
-                  marginBottom: "1rem",
-                }}
-              >
-                V novém roce vám všem přejeme hlavně hodně štěstí, zdraví a
-                lásky. Nastal čas na zhodnocení roku minulého, který pro nás
-                klub znamenal velký krok kupředu. Podařilo se nám, hlavně díky
-                sponzorům, vybudovat domeček.
-              </p>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "0.55rem",
-                  marginBottom: "1.3rem",
-                }}
-              >
-                {[
-                  {
-                    e: "🏗",
-                    t: "Díky nadačnímu fondu Zeměkvět jsme mohli pořídit stavební buňky.",
-                  },
-                  {
-                    e: "🪑",
-                    t: "Firma MycoMedica nám koupila skříňky, stolečky a židličky.",
-                  },
-                  {
-                    e: "🟫",
-                    t: "Firma Damap-podlahové krytiny nám darovala ohromný koberec.",
-                  },
-                  {
-                    e: "🧸",
-                    t: "Také nám lidé z okolí věnovali spoustu hraček.",
-                  },
-                ].map((item) => (
-                  <div
-                    key={item.t}
-                    style={{
-                      display: "flex",
-                      gap: "0.6rem",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <span
-                      style={{ fontSize: "1rem", flexShrink: 0, marginTop: 2 }}
-                    >
-                      {item.e}
-                    </span>
-                    <span
-                      style={{
-                        color: T.textSoft,
-                        fontSize: "0.88rem",
-                        lineHeight: 1.65,
-                      }}
-                    >
-                      {item.t}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <div
-                style={{
-                  background: `linear-gradient(135deg, ${T.bgAlt}, #d7e1c8)`,
-                  borderRadius: 14,
-                  padding: "1.1rem",
-                  borderLeft: `4px solid ${T.bright}`,
-                }}
-              >
-                <p
-                  style={{
-                    color: T.dark,
-                    fontWeight: 700,
-                    fontSize: "0.92rem",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  Náš úplně největší dík patří rodičům, kteří nám dali důvěru a
-                  svěřili nám své děti. Vaše děti jsou našimi učiteli. 🌱
-                </p>
-              </div>
-            </Card>
+                Zobrazit všechny aktuality &rarr;
+              </GreenBtn>
+            </Link>
+          </div>
+        </div>
+      </div>
 
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "1.3rem",
-              }}
-            >
-              <div
-                style={{
-                  background: "linear-gradient(135deg, #d6dfc6, #bcc9a7)",
-                  borderRadius: 22,
-                  padding: "1rem",
-                  textAlign: "center",
-                  boxShadow: "0 8px 32px rgba(45,70,45,0.15)",
-                }}
-              >
-                <div
-                  style={{
-                    borderRadius: 14,
-                    overflow: "hidden",
-                    marginBottom: "0.6rem",
-                  }}
-                >
-                  <Image
-                    src={assetPath("/assets/zazemi.jpg")}
-                    alt="Nové zázemí pro děti"
-                    width={1000}
-                    height={650}
-                    style={{ width: "100%", height: "auto", display: "block" }}
-                  />
-                </div>
-                <p
+      <div style={{ background: "#ece8da", padding: "4.2rem 2rem" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "2.2rem" }}>
+            <SLabel>Novinky</SLabel>
+            <STitle>Praktické informace na jednom místě</STitle>
+          </div>
+          <div
+            className="lk-grid-3"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+              gap: "1.4rem",
+            }}
+          >
+            {newsHighlights.map((item) => (
+              <Card key={item.id} style={{ height: "100%", padding: "1.6rem" }}>
+                <h3
                   style={{
                     color: T.dark,
-                    fontWeight: 800,
                     fontSize: "1.05rem",
-                    marginTop: "0.8rem",
+                    fontWeight: 800,
+                    marginBottom: "0.75rem",
                   }}
                 >
-                  Náš nový domeček
-                </p>
+                  {item.title}
+                </h3>
                 <p
                   style={{
                     color: T.textSoft,
-                    fontSize: "0.82rem",
-                    marginTop: "0.3rem",
+                    lineHeight: 1.75,
+                    fontSize: "0.92rem",
                   }}
                 >
-                  Nové zázemí pro děti
+                  {item.text}
                 </p>
-              </div>
-            </div>
+              </Card>
+            ))}
           </div>
         </div>
       </div>
@@ -462,14 +341,9 @@ export function PageUvod({ setPage }) {
           <div style={{ marginBottom: "1.9rem" }}>
             <StatsStrip soft />
           </div>
-          <GreenBtn
-            onClick={() => {
-              setPage("onas");
-              window.scrollTo(0, 0);
-            }}
-          >
-            Přečíst více &rarr;
-          </GreenBtn>
+          <Link href="/o-nas" style={{ display: "inline-flex" }}>
+            <GreenBtn as="span">Přečíst více &rarr;</GreenBtn>
+          </Link>
         </div>
       </div>
 
@@ -525,45 +399,31 @@ export function PageUvod({ setPage }) {
             flexWrap: "wrap",
           }}
         >
-          <button
-            onClick={() => {
-              setPage("kontakt");
-              window.scrollTo(0, 0);
-            }}
-            style={{
-              background: `linear-gradient(135deg, ${T.dark}, ${T.bright})`,
-              color: T.white,
-              border: "none",
-              padding: "0.78rem 1.9rem",
-              borderRadius: 50,
-              cursor: "pointer",
-              fontFamily: "inherit",
-              fontWeight: 800,
-              fontSize: "0.92rem",
-              boxShadow: "0 6px 20px rgba(60,100,20,0.25)",
-            }}
-          >
-            Kontaktovat nás
-          </button>
-          <button
-            onClick={() => {
-              setPage("cenik");
-              window.scrollTo(0, 0);
-            }}
-            style={{
-              background: "transparent",
-              color: T.bright,
-              border: `2px solid ${T.bright}`,
-              padding: "0.78rem 1.9rem",
-              borderRadius: 50,
-              cursor: "pointer",
-              fontFamily: "inherit",
-              fontWeight: 800,
-              fontSize: "0.92rem",
-            }}
-          >
-            Zobrazit ceník
-          </button>
+          <Link href="/kontakt" style={{ display: "inline-flex" }}>
+            <GreenBtn
+              as="span"
+              style={{
+                background: `linear-gradient(135deg, ${T.dark}, ${T.bright})`,
+                color: T.white,
+                border: "none",
+                boxShadow: "0 6px 20px rgba(60,100,20,0.25)",
+              }}
+            >
+              Kontaktovat nás
+            </GreenBtn>
+          </Link>
+          <Link href="/cenik" style={{ display: "inline-flex" }}>
+            <GreenBtn
+              as="span"
+              style={{
+                background: "transparent",
+                color: T.bright,
+                border: `2px solid ${T.bright}`,
+              }}
+            >
+              Zobrazit ceník
+            </GreenBtn>
+          </Link>
         </div>
       </div>
     </div>

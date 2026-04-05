@@ -1,5 +1,6 @@
 export const routeMap = {
   uvod: "/",
+  aktuality: "/aktuality",
   onas: "/o-nas",
   lide: "/lide",
   cenik: "/cenik",

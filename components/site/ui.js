@@ -53,9 +53,15 @@ export function Card({ children, style, className }) {
   );
 }
 
-export function GreenBtn({ children, onClick, outline, style }) {
+export function GreenBtn({
+  children,
+  onClick,
+  outline,
+  style,
+  as: Component = "button",
+}) {
   return (
-    <button
+    <Component
       onClick={onClick}
       style={{
         fontFamily: "inherit",
@@ -76,7 +82,7 @@ export function GreenBtn({ children, onClick, outline, style }) {
       }}
     >
       {children}
-    </button>
+    </Component>
   );
 }
 

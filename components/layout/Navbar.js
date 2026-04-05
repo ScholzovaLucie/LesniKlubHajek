@@ -15,6 +15,7 @@ const T = {
 
 const NAV_ITEMS = [
   { href: "/", label: "Úvod" },
+  { href: "/aktuality", label: "Aktuality" },
   { href: "/o-nas", label: "O nás" },
   { href: "/lide", label: "Lidé" },
   { href: "/partneri-a-sponzori", label: "Partneři" },

@@ -5,6 +5,7 @@ const basePath = rawBasePath === "/" ? "" : rawBasePath.replace(/\/$/, "");
 
 const nextConfig: NextConfig = {
   output: "export",
+  distDir: "www",
   trailingSlash: true,
   images: {
     unoptimized: true,

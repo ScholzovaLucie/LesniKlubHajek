@@ -7,7 +7,8 @@ export const actualities = [
   {
     title: "Den Země",
     date: "2026-04-22",
-    summary: "Oslavte s námi Den Země a udělejme společně něco hezkého pro naši krajinu.",
+    summary:
+      "Oslavte s námi Den Země a udělejme společně něco hezkého pro naši krajinu.",
     details: [
       "Ve středu 22. 4. 2026 se vydáme uklidit studánku a kousek lesa a projdeme se přírodou.",
       "Sraz: Machov 58",
@@ -29,7 +30,8 @@ export const actualities = [
       "Kde: Machov 58",
       "Za drobný příspěvek budeme vděční.",
     ],
-    contact: "Prosíme o rezervaci místa předem, stačí napsat do zprávy nebo do komentáře.",
+    contact:
+      "Prosíme o rezervaci místa předem, stačí napsat do zprávy nebo do komentáře.",
     posterLink: "/actuality/velikonocni_plakat.jpg",
     posterAlt: "Velikonoční plakát Lesního klubu Hájek",
   },
@@ -44,8 +46,9 @@ export const actualities = [
       "Pokud jste z Machova a okolí, přijďte se podívat, jak to u nás funguje.",
       "Kapacita je omezená.",
     ],
-    contact: "Kontakt: 737 787 061, lesni.klub.hajek@seznam.cz, www.lesniklubhajek.cz",
-    posterLink: "/actuality/LESNÍ KLUB HÁJEK - A4.jpg",
+    contact:
+      "Kontakt: 737 787 061, lesni.klub.hajek@seznam.cz, www.lesniklubhajek.cz",
+    posterLink: "/actuality/nabor.jpg",
     posterAlt: "Náborový plakát Lesního klubu Hájek",
   },
 ];
